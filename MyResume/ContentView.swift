@@ -95,18 +95,21 @@ struct ContentView: View {
                 
             }
             .padding()
-            .overlay(Color.black.opacity(isShowingContact ? 0.5 : 0))
-                .overlay(alignment: .top){
+            .overlay(Color.black.opacity(isShowingContact ? 0.5 : 0)
+                .onTapGesture {
+                    isShowingContact = false
+                }
+            )
+            .overlay(alignment: .top){
                     Group {
                         if(isShowingContact) {
                             ContactView(isShowing: $isShowingContact)
                                 .offset(y: UIScreen.main.bounds.maxY * 0.32)
                                 .transition(.slide)
                         }
-                    }.animation(.spring(), value: isShowingContact)
-                   
-                    
+                    }
                 }
+                .animation(.spring(), value: isShowingContact)
         }.background(Color(uiColor: .secondarySystemBackground))
         
         
