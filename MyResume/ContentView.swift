@@ -38,7 +38,7 @@ struct ContentView: View {
                     
                     
                 } label: {
-                    Text("Contact Me")
+                    Text("與我連絡")
                         .font(.title2.weight(.medium))
                         .foregroundStyle(.white)
                         .padding(.vertical, 5)
